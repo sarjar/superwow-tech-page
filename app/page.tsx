@@ -22,9 +22,8 @@ import {
 const COMPANY = {
   name: "Superwow Tech",
   tagline: "Practical AI & Cloud solutions across every universe of your business.",
-  email: "hello@multiverseit.center",
-  phone: "+370 600 00000",
-  url: "https://multiverseit.center",
+  phone: "+370 64006633",
+  url: "superwow.tech.com",
 };
 
 const menu = [
@@ -37,70 +36,70 @@ const menu = [
 const services = [
   {
     icon: <Cpu className="w-6 h-6" />,
-    title: "Custom Software",
-    desc: "Full‑stack web & mobile apps, from idea to production.",
+    title: "Design & Development",
+    desc: "Beautiful interfaces, smooth UX, and scalable architecture.",
   },
   {
     icon: <Workflow className="w-6 h-6" />,
-    title: "Automation & RPA",
-    desc: "Automate operations with robust workflows and bots.",
+    title: "Custom Software",
+    desc: "Full-stack web, from idea to production.",
   },
   {
     icon: <Atom className="w-6 h-6" />,
     title: "AI Engineering",
-    desc: "RAG/agents, LLM integrations, data pipelines & evaluation.",
-  },
-  {
-    icon: <ShieldCheck className="w-6 h-6" />,
-    title: "Cloud & Security",
-    desc: "Secure, scalable infra on AWS/GCP/Azure with best practices.",
+    desc: "Agents, LLM integrations, data pipelines & workflow automation.",
   },
 ];
 
 const caseStudies = [
   {
-    logo: "🚚",
-    name: "Nordic Logistics",
-    role: "AI Dispatch Assistant",
+    logo: "🎥",
+    name: "Superwow Motion",
+    role: "Motion design studio",
     impact: [
-      "-32% manual routing time",
-      "+18% on‑time deliveries",
-      "24/7 driver support",
-    ],
-  },
-  {
-    logo: "🏦",
-    name: "GreenBank",
-    role: "Payments Micro‑frontends",
-    impact: [
-      "A11y AA compliant UI",
-      "30+ E2E test flows",
-      "Seamless release pipeline",
-    ],
+      "Motion graphics",
+      "Marketing materials",
+      "Website design",
+    ]
   },
   {
     logo: "🛒",
-    name: "RetailCo EU",
-    role: "Recommendations Engine",
+    name: "Superwow SaaS",
+    role: "SaaS platform",
     impact: [
-      "+12% AOV via RAG",
-      "Edge caching <100ms",
-      "Privacy‑safe analytics",
-    ],
+      "Marketing automation",
+      "Pricing optimization",
+      "Reporting and analytics",
+    ]
+  },
+  {
+    logo: "🚀",
+    name: "Superwow AI Solutions",
+    role: "AI-powered solutions",
+    impact: [
+      "Agents",
+      "LLM integrations",
+      "Workflow automation",
+    ]
   },
 ];
 
 const stack = [
-  "TypeScript",
-  "React/Next.js",
-  "Node.js",
-  "Python",
-  "LangChain/LangGraph",
-  "Postgres/Supabase",
-  "Redis",
-  "Docker/Kubernetes",
-  "AWS/GCP/Azure",
-  "Playwright/Jest",
+  "Web Development",
+  "Frontend",
+  "Full-stack",
+  "API", 
+  "UI/UX Design",
+  "AI/LLM Integrations",
+  "DevOps",
+  "Cloud",
+  "Security",
+  "Performance",
+  "Testing",
+  "CI/CD",
+  "Monitoring",
+  "Logging",
+  "Data Pipelines",
 ];
 
 // Custom hook to detect if element is centered in viewport
@@ -325,7 +324,7 @@ export default function Home() {
             className="text-lg md:text-xl text-gray-400 font-normal max-w-[600px] mb-12 leading-relaxed"
           >
             The marketplace where AI-powered creativity meets professional-grade software.
-            We design, ship, and maintain secure systems, AI assistants, and automation tools—so your team can move faster.
+            We design, ship, and maintain secure systems, AI assistants, and automation tools — so you can move faster and focus on your business.
           </motion.p>
 
           {/* Buttons */}
@@ -399,7 +398,7 @@ export default function Home() {
             From proof‑of‑concepts to production platforms. Modular delivery, rigorous testing, and clean hand‑offs.
           </p>
         </motion.div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-3 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
             <CenteredCard
               key={s.title}
@@ -421,7 +420,7 @@ export default function Home() {
       </section>
 
       {/* CASE STUDIES */}
-      <section id="work" className="relative py-32 overflow-hidden">
+      <section id="work" className="relative py-16 overflow-hidden">
         {/* Background gradient accent */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px]" />
         
@@ -439,7 +438,7 @@ export default function Home() {
                   Selected work
                 </span>
               </h2>
-              <p className="text-gray-400">Real results from real projects</p>
+              <p className="text-gray-400">Examples of our projects and services</p>
           </div>
             <motion.a
               href="#contact"
@@ -494,7 +493,7 @@ export default function Home() {
         >
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
             <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              Tech stack
+              Tech expertise & skills
             </span>
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
@@ -573,20 +572,6 @@ export default function Home() {
             >
               <div className="space-y-4">
                 <motion.a
-                  href={`mailto:${COMPANY.email}`}
-                  whileHover={{ x: 5 }}
-                  className="flex items-center gap-4 group"
-                >
-                  <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-cyan-500/20 border border-purple-500/30 grid place-items-center group-hover:border-purple-500/60 transition-colors">
-                    <Mail className="w-5 h-5 text-purple-400" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400">Email us</p>
-                    <p className="text-white font-medium group-hover:text-purple-400 transition-colors">{COMPANY.email}</p>
-                  </div>
-                </motion.a>
-                
-                <motion.a
                   href={`tel:${COMPANY.phone}`}
                   whileHover={{ x: 5 }}
                   className="flex items-center gap-4 group"
@@ -611,7 +596,7 @@ export default function Home() {
                     <Globe className="w-5 h-5 text-magenta-400" />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400">Visit website</p>
+                    <p className="text-sm text-gray-400">Share website</p>
                     <p className="text-white font-medium group-hover:text-magenta-400 transition-colors">{COMPANY.url}</p>
                   </div>
                 </motion.a>
@@ -643,7 +628,7 @@ export default function Home() {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Work email</label>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
                   <input
                     type="email"
                     required
@@ -708,15 +693,13 @@ export default function Home() {
                   </a>
                 ))}
               </div>
-              <div className="h-px w-12 md:h-4 md:w-px bg-purple-500/20" />
+              <div className="h-px w-12 md:h-4 md:w-px w-full bg-gradient-to-r from-transparent via-purple-500/30 to-transparent" />
               <p className="text-gray-500">
-                © {new Date().getFullYear()} {COMPANY.name}. All rights reserved.
+                © {new Date().getFullYear()} {COMPANY.name}, MB. All rights reserved.
               </p>
             </div>
           </div>
           
-          {/* Subtle gradient line at bottom */}
-          <div className="mt-8 h-px w-full bg-gradient-to-r from-transparent via-purple-500/30 to-transparent" />
         </div>
       </footer>
     </div>
