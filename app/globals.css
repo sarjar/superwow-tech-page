@@ -1,26 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050505;
+  --background-secondary: #0B0B0F;
+  --foreground: #FFFFFF;
+  --gray: #B0B0B0;
+  --purple: #8A2BE2;
+  --cyan: #00FFFF;
+  --magenta: #FF00FF;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(180deg, var(--background) 0%, var(--background-secondary) 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom gradient animation */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Animated gradient text */
+@keyframes gradientShift {
+  0% { 
+    background-position: 0% 50%; 
+  }
+  50% { 
+    background-position: 100% 50%; 
+  }
+  100% { 
+    background-position: 0% 50%; 
+  }
+}
+
+.text-gradient-animated {
+  background: linear-gradient(90deg, #8A2BE2, #FF00FF, #00FFFF, #8A2BE2);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease infinite;
+  text-shadow: 0 0 25px rgba(138, 43, 226, 0.5);
+}
+
+/* Glow effect for gradient text */
+.text-glow {
+  filter: drop-shadow(0 0 25px rgba(138, 43, 226, 0.5)) 
+          drop-shadow(0 0 50px rgba(255, 0, 255, 0.3));
 }
