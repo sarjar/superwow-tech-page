@@ -1,0 +1,17 @@
+export const stack = [
+  "Web Development",
+  "Frontend",
+  "Full-stack",
+  "API", 
+  "UI/UX Design",
+  "AI/LLM Integrations",
+  "DevOps",
+  "Cloud",
+  "Security",
+  "Performance",
+  "Testing",
+  "CI/CD",
+  "Monitoring",
+  "Logging",
+  "Data Pipelines",
+];
