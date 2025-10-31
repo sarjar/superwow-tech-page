@@ -7,7 +7,6 @@ export const stack = [
   "AI/LLM Integrations",
   "DevOps",
   "Cloud",
-  "Security",
   "Performance",
   "Testing",
   "CI/CD",

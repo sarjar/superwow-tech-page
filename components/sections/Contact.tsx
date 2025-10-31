@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Globe, ExternalLink } from "lucide-react";
+import { Globe, Copy, Check } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { COMPANY } from "../../lib/constants/company";
 import { EMAILJS_CONFIG, RECIPIENT_EMAIL, type EmailTemplateParams } from "../../lib/config/emailjs";
@@ -11,6 +11,7 @@ export function Contact() {
   const [sent, setSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -23,6 +24,17 @@ export function Contact() {
       ...prev,
       [name]: value
     }));
+  };
+
+  const handleCopyLink = async () => {
+    const url = `https://${COMPANY.url}`;
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (error) {
+      console.error('Failed to copy link:', error);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -90,22 +102,33 @@ export function Contact() {
             Tell us about your goals and constraints. We'll reply with a realistic plan, timeline, and cost estimate.
           </p>
           
-          {/* Website link */}
-          <motion.a
-            href={COMPANY.url}
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Website link copy button */}
+          <motion.button
+            onClick={handleCopyLink}
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.5 }}
             whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-br from-magenta-500/10 to-purple-500/10 border border-magenta-500/30 hover:border-magenta-500/60 backdrop-blur-sm transition-all group"
+            whileTap={{ scale: 0.95 }}
+            className={`inline-flex items-center gap-3 px-6 py-3 rounded-full backdrop-blur-sm transition-all group cursor-pointer ${
+              copied
+                ? 'bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/50'
+                : 'bg-gradient-to-br from-magenta-500/10 to-purple-500/10 border border-magenta-500/30 hover:border-magenta-500/60'
+            }`}
           >
-            <Globe className="w-5 h-5 text-magenta-400 group-hover:rotate-12 transition-transform" />
-            <span className="text-white font-medium">{COMPANY.url}</span>
-            <ExternalLink className="w-4 h-4 text-magenta-400 group-hover:translate-x-1 transition-transform" />
-          </motion.a>
+            {copied ? (
+              <>
+                <span className="text-green-400 font-medium">Copied</span>
+                <Check className="w-4 h-4 text-green-400 transition-all" />
+              </>
+            ) : (
+              <>
+                <span className="text-white font-medium">{COMPANY.url}</span>
+                <Copy className="w-4 h-4 text-magenta-400 group-hover:scale-110 transition-transform" />
+              </>
+            )}
+          </motion.button>
         </motion.div>
 
         {/* Contact Form - Centered */}

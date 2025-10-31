@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Rocket, ExternalLink } from "lucide-react";
+import { ExternalLink, Rocket } from "lucide-react";
 
 interface HeroProps {
   mousePosition: { x: number; y: number };
